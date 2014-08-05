@@ -1,0 +1,32 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.name-add {
+  width: 500px;
+  height: 250px;
+  border: 1px solid #000;
+  margin: 0 auto;
+  border-radius: 5px;
+  top: 50%;
+  margin-top: 150px;
+  text-align: center;
+  padding-top: 50px;
+}
+.name-add__input {
+  display: block;
+  line-height: 24px;
+  width: 90%;
+  margin: 0 auto;
+}
+.name-add__buttons {
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  top: 30px;
+}
+.name-add__button {
+  display: inline-block;
+  height: 30px;
+  width: 150px;
+  margin-right: 10px;
+}
