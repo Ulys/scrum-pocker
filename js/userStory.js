@@ -1,5 +1,5 @@
 /**
- * @fileoverview file contain userStory module;
+ * @fileoverview file contain User Story module;
  * @author anton_razumovskyi@epam.com
  */
 
@@ -7,11 +7,8 @@
  * @module UserStory
  */
 var UserStory = (function () {
-	"use strict";
 
-	var DEFAULT_PRIORITY = 5,			// @const define default priority of user story
-		MAX_TITLE_LENGTH = 80,			// @const define max length of user story title
-		MAX_DESCRIPTION_LENGTH = 200;	// @const define max length of user story description
+	"use strict";
 
 	/**
 	 * UserStory constructor
@@ -19,63 +16,90 @@ var UserStory = (function () {
 	 * @param {String} description Description of user story
 	 * @param {Number} [priority] User story priority is optional
 	 */
-	function userStory(title, description, priority) {
+	function UserStory(title, description, priority) {
+		console.log("User story constructor...");
 
-		var	_priority, //@private Priority of user story
-			_estimation, //@private Estimation of user Story
-			me;
+		this.title = checkTitle(title);
+		this.description = checkDescription(description);
+		this._estimation = null;
 
-		/**
-		 * @function Initialize priority
-		 */
-		function init (title, description, priority) {
-			_priority = priority || DEFAULT_PRIORITY;
-			checkLengthOfStringParameters();
-		}
-		/**
-		 * @function Check length of title and description
-		 * @throw {TooLongNames}
-		 */
-		function checkLengthOfStringParameters(title, description) {
-			if (title.length > MAX_TITLE_LENGTH &&
-				description.length > MAX_DESCRIPTION_LENGTH) {
-				throw Error("TooLongNames");
-			}
-			return true;
-		}
-		/**
-		 * @function Setter of _estimate field
-		 * @param {Number} est user story estimation
-		 */
-		function setEstimation(est) {
-			_estimation = est;
-		}
-		/**
-		 * @function Getter of _estimate field
-		 * @return {Number | undefined}
-		 */
-		function getEstimation(){
-			return _estimation;
-		}
-		/**
-		 * @function Getter of _priority field
-		 * @return {Number}
-		 */
-		function getPriority(){
-			return _priority;
-		}
+		if (priority) {
 
-		me = {
-			title: title,
-			description: description,
-			getPriority: getPriority,
-			setEstimation: setEstimation,
-			getEstimation: getEstimation
-		};
-
-		return me;
+			this.priority = priority;
+		}
 	}
 
-	return userStory;
+	/**
+	 * @const
+	 * define default priority of user story
+	 */
+	UserStory.DEFAULT_PRIORITY = 5;
+
+	/**
+	 * @const
+	 * define max length of user story title
+	 */
+	UserStory.MAX_TITLE_LENGTH = 80;
+
+	/**
+	 * @const
+	 * define max length of user story description
+	 */
+	UserStory.MAX_DESCRIPTION_LENGTH = 200;
+
+	/**
+	 * Check length of description;
+	 * @function
+	 * @param {String} description
+	 * @return {String} >= UserStory.MAX_DESCRIPTION_LENGTH
+	 */
+	function checkDescription (description) {
+
+		if (description.length > UserStory.MAX_DESCRIPTION_LENGTH) {
+
+			return description.substr(UserStory.MAX_DESCRIPTION_LENGTH);
+
+		}
+
+		return description;
+	}
+
+	/**
+	 * Check length of title;
+	 * @function
+	 * @param {String} title
+	 * @return {String} >= UserStory.MAX_TITLE_LENGTH
+	 */
+	function checkTitle (title) {
+
+		if (title.length > UserStory.MAX_TITLE_LENGTH) {
+
+			return title.substr(UserStory.MAX_TITLE_LENGTH);
+
+		}
+
+		return title;
+	}
+
+	/**
+	 * @function Setter of _estimate field
+	 * @param {Number} est user story estimation
+	 */
+	UserStory.prototype.setEstimation = function (est) {
+
+		this._estimation = est;
+	};
+
+	/**
+	 * @function Getter of _estimate field
+	 * @return {Number | null}
+	 */
+	UserStory.prototype.getEstimation = function (){
+
+		return this._estimation;
+	};
+
+
+	return UserStory;
 
 })();
