@@ -65,7 +65,7 @@ var UserStory = (function () {
 	}
 
 	/**
-	 * Check length of title;
+	 * Check length of title
 	 * @function
 	 * @param {String} title
 	 * @return {String} >= UserStory.MAX_TITLE_LENGTH
