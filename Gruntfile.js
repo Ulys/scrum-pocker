@@ -1,4 +1,7 @@
 module.exports = function(grunt) {
+
+    'use strict';
+
     grunt.initConfig({
         jshint: {
             files: ["js/*"],
@@ -13,20 +16,31 @@ module.exports = function(grunt) {
         },
         jasmine: {
             pivotal: {
+<<<<<<< HEAD
                 src: ["js/*"],
                 options:{
                     spec: ["tests/*"]
                 }
+=======
+                src: ["js/"],
+                spec: ["tests/"]
+>>>>>>> 446124163863bf975d10b0d38e2a6a8ff902881c
             }
         },
         stylus: {
-            files: {
-                "css/main.css": ["styl/main.styl"]
+            options: {
+                compress: false,
+            },
+            all: {
+                files: {
+                    "css/main.css": "stylus/main.styl",
+                    "css/circle.css": "stylus/circle.styl"
+                }
             }
         },
         watch: {
             files: ["js/*", "css/*", "stylus/*"],
-            tsks: ["jshint", "jasmine", "stylus"]
+            tasks: ["jshint", "jasmine", "stylus"]
         }
     });
 
@@ -35,7 +49,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-stylus");
 
+<<<<<<< HEAD
     grunt.registerTask("test", ["jshint", "jasmine"]);
     grunt.registerTask("style", ["stylus"]);
     grunt.registerTask("default", ["jshint", "jasmine", "stylus"]);
+=======
+    grunt.registerTask("default", ["test", "style"]);
+    grunt.registerTask("test", ["jshint", "jasmine"]);
+    grunt.registerTask("style", ["stylus"]);
+>>>>>>> 446124163863bf975d10b0d38e2a6a8ff902881c
 }
