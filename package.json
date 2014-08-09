@@ -1,28 +1,29 @@
 {
-    "name": "scrum-poker",
-    "version": "0.0.0",
-    "description": "Scrum-Poker SPA",
-    "main": "index.js",
-    "directories": {
-        "test": "tests"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Ulys/scrum-pocker.git"
-    },
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Ulys/scrum-pocker/issues"
-    },
-    "homepage": "https://github.com/Ulys/scrum-pocker",
-    "devDependencies": {
-        "grunt": "~0.4.0",
-        "grunt-contrib-jasmine": "^0.6.5",
-        "grunt-contrib-jshint": "^0.10.0",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-contrib-stylus": "^0.18.0"
-    }
+  "name": "scrum-poker",
+  "version": "0.0.0",
+  "description": "Scrum-Poker SPA",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ulys/scrum-pocker.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ulys/scrum-pocker/issues"
+  },
+  "homepage": "https://github.com/Ulys/scrum-pocker",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jasmine": "^0.6.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-stylus": "^0.18.0",
+    "grunt-open": "~0.2.3"
+  }
 }

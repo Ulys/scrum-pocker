@@ -6,25 +6,21 @@ module.exports = function(grunt) {
         jshint: {
             files: ["js/*"],
             options: {
+                bitwise: true,
+                freeze: true,
+                noarg: true,
+                noempty: true,
+                nonew: true,
                 eqeqeq: true,
                 curly: true,
-                latedef: true,
                 newcap: true,
                 undef: true,
-                browser: true
-            }
-        },
-        jasmine: {
-            pivotal: {
-<<<<<<< HEAD
-                src: ["js/*"],
-                options:{
-                    spec: ["tests/*"]
+                browser: true,
+                strict: true,
+                maxlen: 90,
+                globals: {
+                    console: true
                 }
-=======
-                src: ["js/"],
-                spec: ["tests/"]
->>>>>>> 446124163863bf975d10b0d38e2a6a8ff902881c
             }
         },
         stylus: {
@@ -38,24 +34,24 @@ module.exports = function(grunt) {
                 }
             }
         },
+        open: {
+            file:{
+                path: "index.html",
+                app: "google-chrome"
+            }
+        },
         watch: {
             files: ["js/*", "css/*", "stylus/*"],
-            tasks: ["jshint", "jasmine", "stylus"]
+            tasks: ["jshint", "stylus"]
         }
     });
 
     grunt.loadNpmTasks("grunt-contrib-jshint");
-    grunt.loadNpmTasks("grunt-contrib-jasmine");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-stylus");
+    grunt.loadNpmTasks("grunt-open");
 
-<<<<<<< HEAD
-    grunt.registerTask("test", ["jshint", "jasmine"]);
+    grunt.registerTask("default", ["jshint", "style", "open", "watch"]);
+    grunt.registerTask("test", ["jshint"]);
     grunt.registerTask("style", ["stylus"]);
-    grunt.registerTask("default", ["jshint", "jasmine", "stylus"]);
-=======
-    grunt.registerTask("default", ["test", "style"]);
-    grunt.registerTask("test", ["jshint", "jasmine"]);
-    grunt.registerTask("style", ["stylus"]);
->>>>>>> 446124163863bf975d10b0d38e2a6a8ff902881c
 }
