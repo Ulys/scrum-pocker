@@ -13,8 +13,10 @@ module.exports = function(grunt) {
         },
         jasmine: {
             pivotal: {
-                src: ["js/"],
-                spec: ["test/"]
+                src: ["js/*"],
+                options:{
+                    spec: ["tests/*"]
+                }
             }
         },
         stylus: {
@@ -33,7 +35,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-stylus");
 
-    grunt.registerTasks("default", ["jshint", "jasmine", "stylus"]);
-    grunt.registerTasks("test", ["jshint", "jasmine"]);
-    grunt.registerTasks("style", ["stylus"]);
+    grunt.registerTask("test", ["jshint", "jasmine"]);
+    grunt.registerTask("style", ["stylus"]);
+    grunt.registerTask("default", ["jshint", "jasmine", "stylus"]);
 }
