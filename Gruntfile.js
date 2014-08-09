@@ -14,12 +14,18 @@ module.exports = function(grunt) {
                 eqeqeq: true,
                 curly: true,
                 newcap: true,
-                undef: true,
+                forin: true,
+                // undef: true,
                 browser: true,
                 strict: true,
+                unused: true,
+                maxparams: 3,
                 maxlen: 90,
                 globals: {
-                    console: true
+                    console: true,
+                    Team: true,
+                    UserStory: true,
+                    Templates: true
                 }
             }
         },
