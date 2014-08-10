@@ -180,7 +180,7 @@ var Templates = (function () {
 			titleInput = createInputField('name-add__input', 'Title', 'storyTitle'),
 			storyDescription = createTextArea(),
 			buttonsWrapper = createWrapper('name-add__buttons'),
-			moreStoryButton = createButton('name-add__button', 'Add more members', 'addStory'),
+			moreStoryButton = createButton('name-add__button', 'Add more story', 'addStory'),
 			nextStepButton = createButton('name-add__button', 'Go to next step', 'next');
 
 		appendChildren(buttonsWrapper, [moreStoryButton, nextStepButton]);

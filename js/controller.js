@@ -21,8 +21,6 @@ var ScrumPoker = (function () {
 		this.template = template;
 		this.team = team;
 		this.listOfStory = [];
-
-		// this.initGame();
 	}
 
 	/**
@@ -39,6 +37,7 @@ var ScrumPoker = (function () {
 	/**
 	 * Bind event to the container element
 	 * @function
+	 * @author anton_razumovskyi@epam.com
 	 * @param {HTMLElement} container
 	 */
 	ScrumPoker.prototype.bindEvents = function () {
@@ -51,10 +50,27 @@ var ScrumPoker = (function () {
 		function buttonHandler (src) {
 
 			/**
+			 * @function
+			 * @param {HTMLElement || Array[HTMLElement]}
+			 */
+			function clearInput() {
+
+				var i, len;
+
+				if (arguments.length) {
+
+					for (i = 0, len = arguments.length; i < len; i++) {
+
+						arguments[i].value = '';
+					}
+				}
+			}
+
+			/**
 			 * Add member to team
 			 * @function
 			 */
-			function addMember() {
+			function addMember () {
 
 				var name,
 					input = document.querySelector('input');
@@ -63,6 +79,8 @@ var ScrumPoker = (function () {
 
 					name = input.value;
 					that.team.addMember(name);
+
+					clearInput(input);
 				}
 			}
 
@@ -70,7 +88,7 @@ var ScrumPoker = (function () {
 			 * Add User Story to US list
 			 * @function
 			 */
-			function addStory() {
+			function addStory () {
 
 				var title,
 					description,
@@ -78,14 +96,35 @@ var ScrumPoker = (function () {
 					titleInput = document.querySelector('input'),
 					descriptionInput = document.querySelector('textarea');
 
-				console.dir(descriptionInput);
-
 				if (titleInput.value) {
 
 					title = titleInput.value;
+					description = descriptionInput.value;
+					userStory = new UserStory(title, description);
 
-					that.listOfStory.push(name);
-					// console.log(that.team);
+					that.listOfStory.push(userStory);
+
+					clearInput(titleInput, descriptionInput);
+				}
+			}
+
+			/**
+			 * Change view to next step
+			 * @function
+			 */
+			function nextStep () {
+
+				var header = document.querySelector('h2').innerText,
+					storyTemplate = /story/g,
+					teamTemplate = /team/g;
+
+				if (teamTemplate.test(header)) {
+
+					that.template.changeTemplate('addStory');
+
+				} else if (storyTemplate.test(header)) {
+
+					that.template.changeTemplate('makeEstimate');
 				}
 			}
 
@@ -99,6 +138,7 @@ var ScrumPoker = (function () {
 					addStory();
 					break;
 				case 'next':
+					nextStep();
 					break;
 				default:
 					break;
