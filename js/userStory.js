@@ -99,7 +99,6 @@ var UserStory = (function () {
 		return this._estimation;
 	};
 
-
 	return UserStory;
 
 })();
