@@ -22,7 +22,7 @@ var ScrumPoker = (function () {
 		this.team = team;
 		this.listOfStory = [];
 
-		this.initGame();
+		// this.initGame();
 	}
 
 	/**
@@ -58,12 +58,34 @@ var ScrumPoker = (function () {
 
 				var name,
 					input = document.querySelector('input');
-				console.dir(input);
+
 				if (input.value) {
 
 					name = input.value;
 					that.team.addMember(name);
-					console.log(that.team);
+				}
+			}
+
+			/**
+			 * Add User Story to US list
+			 * @function
+			 */
+			function addStory() {
+
+				var title,
+					description,
+					userStory,
+					titleInput = document.querySelector('input'),
+					descriptionInput = document.querySelector('textarea');
+
+				console.dir(descriptionInput);
+
+				if (titleInput.value) {
+
+					title = titleInput.value;
+
+					that.listOfStory.push(name);
+					// console.log(that.team);
 				}
 			}
 
@@ -74,6 +96,7 @@ var ScrumPoker = (function () {
 					addMember();
 					break;
 				case 'addStory':
+					addStory();
 					break;
 				case 'next':
 					break;

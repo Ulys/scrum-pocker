@@ -10,6 +10,7 @@
 		template = new Templates(wrapper),
 		game = new ScrumPoker(template, team);
 
+
 	console.dir(game);
-	// game.initGame();
+	game.initGame();
 })();
