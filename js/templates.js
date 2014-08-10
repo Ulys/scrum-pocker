@@ -48,15 +48,17 @@ var Templates = (function () {
 	 * @function
 	 * @param {String} className className of new element
 	 * @param {String} placeholder
+	 * @param {String} name Name attribute
 	 * @return {HTMLElement} input
 	 */
-	function createInputField (className, placeholder) {
+	function createInputField (className, placeholder, name) {
 
 		var input = document.createElement('input');
 
 		input.className = className;
 		input.setAttribute('type', 'text');
 		input.setAttribute('placeholder', placeholder);
+		input.setAttribute('name', name);
 
 		return input;
 	}
@@ -66,15 +68,17 @@ var Templates = (function () {
 	 * @function
 	 * @param {String} className className of new element
 	 * @param {String} value
+	 * @param {String} name Name attribute
 	 * @return {HTMLElement} input
 	 */
-	function createButton (className, value) {
+	function createButton (className, value, name) {
 
 		var input = document.createElement('input');
 
 		input.className = className;
 		input.setAttribute('type', 'button');
 		input.setAttribute('value', value);
+		input.setAttribute('name', name);
 
 		return input;
 	}
@@ -107,7 +111,7 @@ var Templates = (function () {
 	 * Pattern for adding member page
 	 * <div class='name-add'>
 	 *		<h2 class='name_add__title'></h2>
-	 *		<input class='name-add__input' type='text' value='Member name'>
+	 *		<input class='name-add__input' type='text' placeholder='Member name' name='memeberName'>
 	 *		<div class='name-add__buttons'>
 	 *			<input type='submit' class='name-add__button' value='Add more members'>
 	 *			<input type='submit' class='name-add__button' value='Go to next step'>
@@ -121,10 +125,10 @@ var Templates = (function () {
 		var fragment = document.createDocumentFragment(),
 			wrapper = createWrapper('name-add'),
 			header = createHead('name_add__title', 'Add name of your team member'),
-			nameInput = createInputField('name-add__input', 'Member name'),
+			nameInput = createInputField('name-add__input', 'Member name', 'memberName'),
 			buttonsWrapper = createWrapper('name-add__buttons'),
-			moreMembersButton = createButton('name-add__button', 'Add more members'),
-			nextStepButton = createButton('name-add__button', 'Go to next step');
+			moreMembersButton = createButton('name-add__button', 'Add more members', 'addMember'),
+			nextStepButton = createButton('name-add__button', 'Go to next step', 'next');
 
 		appendChildren(buttonsWrapper, [moreMembersButton, nextStepButton]);
 		appendChildren(wrapper, [header, nameInput, buttonsWrapper]);
@@ -173,11 +177,11 @@ var Templates = (function () {
 		var fragment = document.createDocumentFragment(),
 			wrapper = createWrapper('name-add'),
 			header = createHead('name_add__title', 'Describe your user story'),
-			titleInput = createInputField('name-add__input', 'Title'),
+			titleInput = createInputField('name-add__input', 'Title', 'storyTitle'),
 			storyDescription = createTextArea(),
 			buttonsWrapper = createWrapper('name-add__buttons'),
-			moreStoryButton = createButton('name-add__button', 'Add more members'),
-			nextStepButton = createButton('name-add__button', 'Go to next step');
+			moreStoryButton = createButton('name-add__button', 'Add more members', 'addStory'),
+			nextStepButton = createButton('name-add__button', 'Go to next step', 'next');
 
 		appendChildren(buttonsWrapper, [moreStoryButton, nextStepButton]);
 		appendChildren(wrapper, [header, titleInput, storyDescription, buttonsWrapper]);

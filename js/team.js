@@ -51,11 +51,13 @@ var Team = (function () {
 	/**
 	 * Add new member to the team
 	 * @function
-	 * @param {TeamMember} newMember
+	 * @param {TeamMemberName} newMember
 	 */
-	Team.prototype.addMember = function (newMember) {
+	Team.prototype.addMember = function (newMemberName) {
 
-		this.member.push(newMember);
+		var newMember = new TeamMember(newMemberName);
+
+		this.members.push(newMember);
 	};
 
 	return Team;

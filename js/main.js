@@ -5,5 +5,11 @@
 
 	console.log("main ...");
 
+	var wrapper = document.getElementsByClassName('content')[0],
+		team = new Team(),
+		template = new Templates(wrapper),
+		game = new ScrumPoker(template, team);
 
+	console.dir(game);
+	// game.initGame();
 })();
