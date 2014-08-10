@@ -1,11 +1,12 @@
 /**
  * @fileoverview Game controller
+ * @author olena_sovyn@epam.com
  */
 
 /**
  * @module
  */
-var ScrumPoker = (function () {
+var ScrumPokerModule = (function () {
 
 	"use strict";
 
@@ -19,8 +20,9 @@ var ScrumPoker = (function () {
 		console.log("Scrum poker constructor ...");
 
 		this.template = template;
-		this.team = team;
-		this.listOfStory = [];
+		console.log(template);
+		//this.team = team;
+		//this.listOfStory = [];
 	}
 
 	/**
@@ -29,6 +31,8 @@ var ScrumPoker = (function () {
 	 */
 	ScrumPoker.prototype.initGame = function () {
 		console.log("Scrum Poker init game...");
+		console.log(this.template);
+		document.body.appendChild(this.template);
 	};
 
 	/**
@@ -38,8 +42,17 @@ var ScrumPoker = (function () {
 	 */
 	ScrumPoker.prototype.bindEvents = function () {
 
-		function add
+		//function add
 
-		element.addEventListener("click", function () {}, false);
+		//element.addEventListener("click", function () {}, false);
 	}
+
+	//Game logic
+
+	//Start of the game
+	var indexTemplate = new Templates();
+	var newGame = new ScrumPoker(indexTemplate.currentTemplate());
+	newGame.initGame();
+
+	//
 });
