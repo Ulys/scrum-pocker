@@ -9,7 +9,7 @@
  */
 var Templates = (function () {
 
-	"use strict";
+	'use strict';
 
 	/**
 	 * Create wrapper div
@@ -19,7 +19,7 @@ var Templates = (function () {
 	 */
 	function createWrapper (className) {
 
-		var wrapper = document.createElement("div");
+		var wrapper = document.createElement('div');
 
 		wrapper.className = className;
 
@@ -33,9 +33,9 @@ var Templates = (function () {
 	 * @param {String} text innerHTML of header
 	 * @return {HTMLElement} header
 	 */
-	function createHeader (className, text) {
+	function createHead (className, text) {
 
-		var header = document.createElement("h2");
+		var header = document.createElement('h2');
 
 		header.className = className;
 		header.innerHTML = text;
@@ -52,11 +52,11 @@ var Templates = (function () {
 	 */
 	function createInputField (className, placeholder) {
 
-		var input = document.createElement("input");
+		var input = document.createElement('input');
 
 		input.className = className;
-		input.setAtribute("type", "text");
-		input.setAtribute("placeholder", placeholder);
+		input.setAttribute('type', 'text');
+		input.setAttribute('placeholder', placeholder);
 
 		return input;
 	}
@@ -70,11 +70,11 @@ var Templates = (function () {
 	 */
 	function createButton (className, value) {
 
-		var input = document.createElement("input");
+		var input = document.createElement('input');
 
 		input.className = className;
-		input.setAtribute("type", "button");
-		input.setAtribute("value", value);
+		input.setAttribute('type', 'button');
+		input.setAttribute('value', value);
 
 		return input;
 	}
@@ -105,48 +105,50 @@ var Templates = (function () {
 
 	/**
 	 * Pattern for adding member page
-	 * <div class="name-add">
-	 *		<h2 class="name_add__title"></h2>
-	 *		<input class="name-add__input" type="text" value="Member name">
-	 *		<div class="name-add__buttons">
-	 *			<input type="submit" class="name-add__button" value="Add more members">
-	 *			<input type="submit" class="name-add__button" value="Go to next step">
+	 * <div class='name-add'>
+	 *		<h2 class='name_add__title'></h2>
+	 *		<input class='name-add__input' type='text' value='Member name'>
+	 *		<div class='name-add__buttons'>
+	 *			<input type='submit' class='name-add__button' value='Add more members'>
+	 *			<input type='submit' class='name-add__button' value='Go to next step'>
 	 *		</div>
 	 *	</div>
+	 * @function
 	 * @return {documentFragment}
 	 */
-	var addMember = (function () {
+	var addMember = function () {
 
 		var fragment = document.createDocumentFragment(),
-			wrapper = createWrapper("name-add"),
-			header = createHeader("name_add__title", "Add name of your team member"),
-			nameInput = createInputField("name-add__input", "Member name"),
-			buttonsWrapper = createWrapper("name-add__buttons"),
-			moreMembersButton = createButton("name-add__button", "Add more members"),
-			nextStepButton = createButton("name-add__button", "Go to next step");
+			wrapper = createWrapper('name-add'),
+			header = createHead('name_add__title', 'Add name of your team member'),
+			nameInput = createInputField('name-add__input', 'Member name'),
+			buttonsWrapper = createWrapper('name-add__buttons'),
+			moreMembersButton = createButton('name-add__button', 'Add more members'),
+			nextStepButton = createButton('name-add__button', 'Go to next step');
 
 		appendChildren(buttonsWrapper, [moreMembersButton, nextStepButton]);
 		appendChildren(wrapper, [header, nameInput, buttonsWrapper]);
 		fragment.appendChild(wrapper);
 
 		return fragment;
-	})();
+	};
 
 	/**
 	 * Pattern for adding member page
-	 * <div class="name-add">
-	 *		<h2 class="name_add__title"></h2>
-	 *		<input class="name-add__input" type="text" value="Member name">
-	 *		<textarea class="name-add__input" type="text" value="Member name">
+	 * @function
+	 * <div class='name-add'>
+	 *		<h2 class='name_add__title'></h2>
+	 *		<input class='name-add__input' type='text' value='Member name'>
+	 *		<textarea class='name-add__input' type='text' value='Member name'>
 	 *		</textarea>
-	 *		<div class="name-add__buttons">
-	 *			<input type="submit" class="name-add__button" value="Add new story">
-	 *			<input type="submit" class="name-add__button" value="Go to next step">
+	 *		<div class='name-add__buttons'>
+	 *			<input type='submit' class='name-add__button' value='Add new story'>
+	 *			<input type='submit' class='name-add__button' value='Go to next step'>
 	 *		</div>
 	 *	</div>
 	 * @return {documentFragment}
 	 */
-	var addStory = (function () {
+	var addStory = function () {
 
 		/**
 		 * Create text area for story description
@@ -155,36 +157,162 @@ var Templates = (function () {
 		 */
 		function createTextArea () {
 
-			var textarea = document.createElement("textarea"),
+			var textarea = document.createElement('textarea'),
 				rows = 8,			/*Number of rows in textarea*/
 				cols = 50;			/*Number of cols in textarea*/
 
-			textarea.className("story-add__textarea");
-			textarea.setAtribute("rows", rows);
-			textarea.setAtribute("cols", cols);
-			textarea.setAtribute("cols", cols);
-			textarea.name = "storyDescription";
+			textarea.className = 'story-add__textarea';
+			textarea.setAttribute('rows', rows);
+			textarea.setAttribute('cols', cols);
+			textarea.setAttribute('cols', cols);
+			textarea.name = 'storyDescription';
 
 			return textarea;
 		}
 
 		var fragment = document.createDocumentFragment(),
-			wrapper = createWrapper("name-add"),
-			header = createHeader("name_add__title", "Describe your user story"),
-			titleInput = createInputField("name-add__input", "Title"),
-			storyDescription = createTextArea();
-			buttonsWrapper = createWrapper("name-add__buttons"),
-			moreStoryButton = createButton("name-add__button", "Add more members"),
-			nextStepButton = createButton("name-add__button", "Go to next step");
+			wrapper = createWrapper('name-add'),
+			header = createHead('name_add__title', 'Describe your user story'),
+			titleInput = createInputField('name-add__input', 'Title'),
+			storyDescription = createTextArea(),
+			buttonsWrapper = createWrapper('name-add__buttons'),
+			moreStoryButton = createButton('name-add__button', 'Add more members'),
+			nextStepButton = createButton('name-add__button', 'Go to next step');
 
 		appendChildren(buttonsWrapper, [moreStoryButton, nextStepButton]);
 		appendChildren(wrapper, [header, titleInput, storyDescription, buttonsWrapper]);
 		fragment.appendChild(wrapper);
 
 		return fragment;
-	})();
+	};
 
-	var makeEstimate = (function () {})();
+	/**
+	 * Pattern for making estimate
+	 * @function
+	 *  <div class='circle__header'></div>
+	 * 	<div class='play-field'></div>
+	 *	<div class='cards-field'>
+	 *		<div class='cards-field__simple'>
+	 *			<div class='card'>1</div>
+	 *			<div class='card'>2</div>
+	 *			<div class='card'>3</div>
+	 *			<div class='card'>5</div>
+	 *			<div class='card'>8</div>
+	 *			<div class='card'>13</div>
+	 *			<div class='card'>?</div>
+	 *			<div class='card'>Infinity</div>
+	 *		</div>
+	 *		<div class='coffee-card'>
+	 *		</div>
+	 *	</div>
+	 * @return {documentFragment}
+	 */
+	var makeEstimate = function () {
 
-	return ;
+		/**
+		 * Create array of card containers
+		 * @function
+		 * @return {Array[HTMLElement]}
+		 */
+		function createCardsElements() {
+			var item,
+				card,
+				cardsValue = {
+					'1': '1',
+					'2': '2',
+					'3': '3',
+					'5': '5',
+					'8': '8',
+					'13': '13',
+					'?': '?',
+					'Inf': 'Infinity'
+				},
+				elements = [];
+
+				for (item in cardsValue) {
+
+					if (cardsValue.hasOwnProperty(item)) {
+
+						card = createWrapper('card');
+						card.innerHTML = cardsValue[item];
+						elements.push(card);
+					}
+				}
+
+				return elements;
+		}
+
+		var fragment = document.createDocumentFragment(),
+			head = createWrapper('circle__header'),
+			playField = createWrapper('play-field'),
+			cardsField = createWrapper('cards-field'),
+			cardsWrapper = createWrapper('cards-field__simple'),
+			cardList = createCardsElements(),
+			coffeeCard = createWrapper('coffee-card');
+
+		appendChildren(cardsWrapper, cardList);
+		appendChildren(cardsField, [cardsWrapper, coffeeCard]);
+		appendChildren(fragment, [head, playField, cardsField]);
+
+		return fragment;
+	};
+
+	/**
+	 * Template controller
+	 * @class
+	 */
+
+	/**
+	 * @constructor
+	 * @param {HTMLElement} wrapepr Wrapper for template
+	 */
+	function TemplateController(wrapper) {
+
+		this.wrapper = wrapper;
+		this._templates = {
+			'addMember': addMember,
+			'addStory': addStory,
+			'makeEstimate': makeEstimate
+		};
+		this.currentTemplate = this._templates.addMember;
+	}
+
+	/**
+	 * Change template
+	 * @function
+	 * @param {String} newTemplate Name of template
+	 */
+	TemplateController.prototype.changeTemplate = function (newTemplate) {
+
+		if (newTemplate in this._templates) {
+
+			this._removeTemplate();
+			this._setTemplate(newTemplate);
+		}
+	};
+
+	/**
+	 * Remove current template from page
+	 * @private
+	 * @function
+	 */
+	TemplateController.prototype._removeTemplate = function () {
+
+		this.wrapper.innerHTML = '';
+		this.currentTemplate = null;
+	};
+
+	/**
+	 * Set new template to page
+	 * @private
+	 * @function
+	 * @param {String} template Name of Template
+	 */
+	 TemplateController.prototype._setTemplate = function (template) {
+
+	 	this.currentTemplate = template;
+	 	this.wrapper.appendChild(this._templates[template]());
+	 };
+
+	return TemplateController;
 })();
