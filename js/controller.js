@@ -55,7 +55,8 @@ var ScrumPoker = (function () {
 			 */
 			function clearInput() {
 
-				var i, len;
+				var i,
+					len;
 
 				if (arguments.length) {
 
