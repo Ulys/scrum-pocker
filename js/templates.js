@@ -126,7 +126,7 @@ var Templates = (function () {
 			header = createHead('name_add__title', 'Add name of your team member'),
 			nameInput = createInputField('name-add__input', 'Member name'),
 			buttonsWrapper = createWrapper('name-add__buttons'),
-			moreMembersButton = createButton('name-add__button', 'Add more members'),
+			moreMembersButton = createButton('name-add__button', 'Add more members', 'addMember'),
 			nextStepButton = createButton('name-add__button', 'Go to next step', 'next');
 
 		appendChildren(buttonsWrapper, [moreMembersButton, nextStepButton]);
@@ -228,7 +228,7 @@ var Templates = (function () {
 			inputList = createInputList(),
 			dataList = createDataList(),
 			buttonsWrapper = createWrapper('name-add__buttons'),
-			moreStoryButton = createButton('name-add__button', 'Add more story'),
+			moreStoryButton = createButton('name-add__button', 'Add more story', 'addStory'),
 			nextStepButton = createButton('name-add__button', 'Go to next step', 'next');
 
 		appendChildren(buttonsWrapper, [moreStoryButton, nextStepButton]);

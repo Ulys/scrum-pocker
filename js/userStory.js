@@ -58,7 +58,6 @@ var UserStory = (function () {
 		if (description.length > UserStory.MAX_DESCRIPTION_LENGTH) {
 
 			return description.substr(UserStory.MAX_DESCRIPTION_LENGTH);
-
 		}
 
 		return description;
@@ -75,11 +74,16 @@ var UserStory = (function () {
 		if (title.length > UserStory.MAX_TITLE_LENGTH) {
 
 			return title.substr(UserStory.MAX_TITLE_LENGTH);
-
 		}
 
 		return title;
 	}
+
+	/**
+	 * Default value of priority
+	 * @type {Number}
+	 */
+	UserStory.prototype.priority = UserStory.DEFAULT_PRIORITY;
 
 	/**
 	 * @function Setter of _estimate field

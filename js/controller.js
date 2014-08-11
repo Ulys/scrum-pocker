@@ -82,6 +82,7 @@ var ScrumPoker = (function () {
 
 					clearInput(input);
 				}
+				console.log(that.team);
 			}
 
 			/**
@@ -93,19 +94,23 @@ var ScrumPoker = (function () {
 				var title,
 					description,
 					userStory,
+					priority,
 					titleInput = document.querySelector('input'),
-					descriptionInput = document.querySelector('textarea');
+					descriptionInput = document.querySelector('textarea'),
+					priorityInput = document.querySelectorAll('input')[1];
 
 				if (titleInput.value) {
 
 					title = titleInput.value;
 					description = descriptionInput.value;
-					userStory = new UserStory(title, description);
+					priority = priorityInput.value;
+					userStory = new UserStory(title, description, priority);
 
 					that.listOfStory.push(userStory);
 
-					clearInput(titleInput, descriptionInput);
+					clearInput(titleInput, descriptionInput, priorityInput);
 				}
+				console.log(that.listOfStory);
 			}
 
 			/**
