@@ -55,7 +55,8 @@ var ScrumPoker = (function () {
 			 */
 			function clearInput() {
 
-				var i, len;
+				var i,
+					len;
 
 				if (arguments.length) {
 
@@ -119,18 +120,64 @@ var ScrumPoker = (function () {
 			 */
 			function nextStep () {
 
+				/**
+				 * Check number of members
+				 * @function
+				 * @return {Boolean}
+				 *					true - enough memebers
+				 *					false - need more members
+				 */
+				function checkMemberNumber() {
+
+					return that.team.members.length >= Team.MIN_NUMBER_OF_TEAM_MEMBER;
+				}
+
+				/**
+				 * Check stories number
+				 * @function
+				 * @return {Boolean}
+				 *					true - enough stories
+				 *					false - need none story
+				 */
+				function checkStoryNumber() {
+
+					return !!that.listOfStory.length;
+				}
+
+				/**
+				 * Show notifacation
+				 * @function
+				 * @param {String} message
+				 */
+				function showNotifiacation (message) {
+
+					alert(message);
+				}
+
 				var currentTemplate = that.template.currentTemplate,
 					storyTemplate = /story/gi,
 					teamTemplate = /member/gi;
 
 				if (teamTemplate.test(currentTemplate)) {
 
-					that.template.changeTemplate('addStory');
+					if (checkMemberNumber()){
+
+						that.template.changeTemplate('addStory');
+					} else {
+
+						showNotifiacation("Add at leat two team member");
+					}
 
 				} else if (storyTemplate.test(currentTemplate)) {
 
-					that.template.changeTemplate('makeEstimate');
-					CoffeeCard();
+					if (checkStoryNumber()) {
+
+						that.template.changeTemplate('makeEstimate');
+						CoffeeCard();
+					} else {
+
+						showNotifiacation("Add at least one story");
+					}
 				}
 			}
 

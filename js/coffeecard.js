@@ -34,9 +34,16 @@ var CoffeeCard = ( function () {
 
 
 	function CoffeeCard () {
+<<<<<<< HEAD
+=======
+
+		console.log("coffee card is listening");
+		console.log(document.getElementsByClassName('coffee-card')[0]);
+>>>>>>> origin/master
 		var card = document.getElementsByClassName('coffee-card')[0];
 		card.addEventListener('click', activateCoffeeCard);
 	};
 
 	return CoffeeCard;
 })();
+
