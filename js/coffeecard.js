@@ -13,18 +13,27 @@ var CoffeeCard = ( function () {
 
 	//<div class="black_overlay"></div>
 	//<div class="coffee_content"><div></div><div></div></div>
+	function startTimer (minutes, seconds) {
+
+	}
 
 	function activateCoffeeCard () {
-		var temp = '';
-		temp = '<div class="black_overlay"></div><div class="coffee_content"><div></div><div></div></div>';
+		var temp = '',
+			minutes = 10,
+			seconds = "00";
+		temp = '<div class="black_overlay"></div><div class="coffee-content"><div class="coffee-content__icon">CoffeeTime</div><div class="coffee-content__timer">'+minutes+':'+seconds+'</div></div>';
 		document.body.innerHTML += temp;
-		console.log(temp);
+		setInterval (function () {
+			minutes--;
+			console.log(minutes);
+			document.getElementsByClassName('coffee-content__timer')[0].hide().html(data).fadeIn('fast');
+
+		}, 1000);
+
 	}
 
 
 	function CoffeeCard () {
-		console.log("coffee card is listening");
-		console.log(document.getElementsByClassName('coffee-card')[0]);
 		var card = document.getElementsByClassName('coffee-card')[0];
 		card.addEventListener('click', activateCoffeeCard);
 	};
