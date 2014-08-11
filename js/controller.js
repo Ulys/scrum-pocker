@@ -21,6 +21,7 @@ var ScrumPoker = (function () {
 		this.template = template;
 		this.team = team;
 		this.listOfStory = [];
+		this.estimationProcess = null;
 	}
 
 	/**
@@ -154,6 +155,29 @@ var ScrumPoker = (function () {
 					alert(message);
 				}
 
+				/**
+				 * Set member to make estimation
+				 * @function
+				 */
+				function setMember() {
+
+					var wrapper = document.getElementsByClassName('circle__header')[0],
+						header = document.createElement('h1');
+
+					header.innerHTML = that.team.members[numberOfMember].name;
+					wrapper.appendChild(header);
+				}
+
+				/**
+				 * Start estimation
+				 * @function
+				 */
+				function estimationStart() {
+
+					setMember();
+					estimationFlg = true;
+				}
+
 				var currentTemplate = that.template.currentTemplate,
 					storyTemplate = /story/gi,
 					teamTemplate = /member/gi;
@@ -173,6 +197,7 @@ var ScrumPoker = (function () {
 					if (checkStoryNumber()) {
 
 						that.template.changeTemplate('makeEstimate');
+						estimationStart();
 						CoffeeCard();
 					} else {
 
@@ -181,9 +206,15 @@ var ScrumPoker = (function () {
 				}
 			}
 
-			var source = src.srcElement;
+			var source = src.srcElement,
+				name = source.getAttribute('name'),
+				pattern = /card[\d+,\S]/;
 
-			switch (source.getAttribute('name')) {
+			if (pattern.test(name)) {
+				console.log(name);
+			}
+
+			switch (name) {
 				case 'addMember':
 					addMember();
 					break;
@@ -198,7 +229,9 @@ var ScrumPoker = (function () {
 			}
 		}
 
-		var that = this;
+		var that = this,
+			numberOfMember = 0,
+			estiamtionFlg = false;
 
 		this.template.wrapper.addEventListener("click", buttonHandler, false);
 	};

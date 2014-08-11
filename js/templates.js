@@ -246,14 +246,14 @@ var Templates = (function () {
 	 * 	<div class='play-field'></div>
 	 *	<div class='cards-field'>
 	 *		<div class='cards-field__simple'>
-	 *			<div class='card'>1</div>
-	 *			<div class='card'>2</div>
-	 *			<div class='card'>3</div>
-	 *			<div class='card'>5</div>
-	 *			<div class='card'>8</div>
-	 *			<div class='card'>13</div>
-	 *			<div class='card'>?</div>
-	 *			<div class='card'>Infinity</div>
+	 *			<div class='card' name='card1'>1</div>
+	 *			<div class='card' name='card2'>2</div>
+	 *			<div class='card' name='card3'>3</div>
+	 *			<div class='card' name='card5'>5</div>
+	 *			<div class='card' name='card8'>8</div>
+	 *			<div class='card' name='card13'>13</div>
+	 *			<div class='card' name='card?'>?</div>
+	 *			<div class='card' name='cardInf'>Infinity</div>
 	 *		</div>
 	 *		<div class='coffee-card'>
 	 *		</div>
@@ -287,6 +287,7 @@ var Templates = (function () {
 					if (cardsValue.hasOwnProperty(item)) {
 
 						card = createWrapper('card');
+						card.setAttribute('name', 'card' + item);
 						card.innerHTML = cardsValue[item];
 						elements.push(card);
 					}
