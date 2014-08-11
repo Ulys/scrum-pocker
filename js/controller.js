@@ -173,11 +173,11 @@ var ScrumPoker = (function () {
 					if (checkStoryNumber()) {
 
 						that.template.changeTemplate('makeEstimate');
+						CoffeeCard();
 					} else {
 
 						showNotifiacation("Add at least one story");
 					}
-
 				}
 			}
 
