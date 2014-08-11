@@ -22,9 +22,10 @@ var CoffeeCard = ( function () {
 
 
 	function CoffeeCard () {
-		document.getElementsByClassName('coffee-card')[0].addEventListener('onclick', activateCoffeCard());
-	};
+		document.getElementsByClassName('coffee-card')[0].addEventListener('onclick',
+			activateCoffeCard());
+	}
 
 
 	return CoffeeCard;
-})
+});
