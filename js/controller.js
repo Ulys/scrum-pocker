@@ -114,15 +114,15 @@ var ScrumPoker = (function () {
 			 */
 			function nextStep () {
 
-				var header = document.querySelector('h2').innerText,
-					storyTemplate = /story/g,
-					teamTemplate = /team/g;
+				var currentTemplate = that.template.currentTemplate,
+					storyTemplate = /story/gi,
+					teamTemplate = /member/gi;
 
-				if (teamTemplate.test(header)) {
+				if (teamTemplate.test(currentTemplate)) {
 
 					that.template.changeTemplate('addStory');
 
-				} else if (storyTemplate.test(header)) {
+				} else if (storyTemplate.test(currentTemplate)) {
 
 					that.template.changeTemplate('makeEstimate');
 				}
@@ -148,7 +148,7 @@ var ScrumPoker = (function () {
 		var that = this;
 
 		this.template.wrapper.addEventListener("click", buttonHandler, false);
-	}
+	};
 
 	return ScrumPoker;
 })();
