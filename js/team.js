@@ -49,6 +49,12 @@ var Team = (function () {
 	}
 
 	/**
+	 * Minimal number of team members
+	 * @const
+	 * @type {Number}
+	 */
+	Team.MIN_NUMBER_OF_TEAM_MEMBER = 2;
+	/**
 	 * Add new member to the team
 	 * @function
 	 * @param {TeamMemberName} newMember
