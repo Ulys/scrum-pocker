@@ -14,17 +14,20 @@ var CoffeeCard = ( function () {
 	//<div class="black_overlay"></div>
 	//<div class="coffee_content"><div></div><div></div></div>
 
-	function activateCoffeCard () {
-		document.createDocumentFragment();
-		document.body.appendChild();
-		document.body.appendChild();
+	function activateCoffeeCard () {
+		var temp = '';
+		temp = '<div class="black_overlay"></div><div class="coffee_content"><div></div><div></div></div>';
+		document.body.innerHTML += temp;
+		console.log(temp);
 	}
 
 
 	function CoffeeCard () {
-		document.getElementsByClassName('coffee-card')[0].addEventListener('onclick', activateCoffeCard());
+		console.log("coffee card is listening");
+		console.log(document.getElementsByClassName('coffee-card')[0]);
+		var card = document.getElementsByClassName('coffee-card')[0];
+		card.addEventListener('click', activateCoffeeCard);
 	};
 
-
 	return CoffeeCard;
-})
+})();

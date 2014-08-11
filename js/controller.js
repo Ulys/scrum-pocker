@@ -130,6 +130,7 @@ var ScrumPoker = (function () {
 				} else if (storyTemplate.test(currentTemplate)) {
 
 					that.template.changeTemplate('makeEstimate');
+					CoffeeCard();
 				}
 			}
 
