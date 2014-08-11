@@ -11,35 +11,48 @@ var CoffeeCard = ( function () {
 
 	"use strict";
 
-	//<div class="black_overlay"></div>
-	//<div class="coffee_content"><div></div><div></div></div>
 	function startTimer (minutes, seconds) {
-
-	}
-
-	function activateCoffeeCard () {
-		var temp = '',
-			minutes = 10,
-			seconds = "00";
-		temp = '<div class="black_overlay"></div><div class="coffee-content"><div class="coffee-content__icon">CoffeeTime</div><div class="coffee-content__timer">'+minutes+':'+seconds+'</div></div>';
-		document.body.innerHTML += temp;
-		setInterval (function () {
-			minutes--;
+		var CoffeeTimer = setInterval (function () {
+			if (seconds==0)
+			{
+				minutes--;
+				seconds=60;	
+			}
+				seconds--;
 			console.log(minutes);
-			document.getElementsByClassName('coffee-content__timer')[0].hide().html(data).fadeIn('fast');
-
+			if (minutes<10) {
+				minutes = +minutes;
+				minutes = "0"+minutes;
+			}
+			if (seconds<10) {
+				seconds = +seconds;
+				seconds = "0"+seconds;
+			}
+			document.getElementsByClassName('coffee-content__timer')[0].innerHTML=minutes+":"+seconds;
+			if ((minutes==0)&&(seconds==0)) {
+				clearInterval (CoffeeTimer);
+				document.getElementsByClassName('black-overlay')[0].style.display="none";
+				document.getElementsByClassName('coffee-content')[0].style.display="none";
+			}
 		}, 1000);
 
 	}
 
+	//<div class="black_overlay"></div>
+	//<div class="coffee_content"><div></div><div></div></div>
+	function activateCoffeeCard () {
+		var temp = '',
+			minutes = 10,
+			seconds = "00";
+		temp = '<div class="black-overlay"></div><div class="coffee-content"><div class="coffee-content__icon">CoffeeTime</div><div class="coffee-content__timer">'+minutes+':'+seconds+'</div></div>';
+		document.body.innerHTML += temp;
+		document.getElementsByClassName('black-overlay')[0].style.display="block";
+		document.getElementsByClassName('coffee-content')[0].style.display="block";
+		startTimer(10,0);
+	}
+
 
 	function CoffeeCard () {
-<<<<<<< HEAD
-=======
-
-		console.log("coffee card is listening");
-		console.log(document.getElementsByClassName('coffee-card')[0]);
->>>>>>> origin/master
 		var card = document.getElementsByClassName('coffee-card')[0];
 		card.addEventListener('click', activateCoffeeCard);
 	};
