@@ -302,7 +302,7 @@ var Templates = (function () {
 			cardsField = createWrapper('cards-field'),
 			cardsWrapper = createWrapper('cards-field__simple'),
 			cardList = createCardsElements(),
-			coffeeCard = createWrapper('coffee-card');
+			coffeeCard = createWrapper('coffee-card icon-coffee');
 
 		appendChildren(cardsWrapper, cardList);
 		appendChildren(cardsField, [cardsWrapper, coffeeCard]);

@@ -44,7 +44,7 @@ var CoffeeCard = ( function () {
 		var temp = '',
 			minutes = 10,
 			seconds = "00";
-		temp = '<div class="black-overlay"></div><div class="coffee-content"><div class="coffee-content__icon">CoffeeTime</div><div class="coffee-content__timer">'+minutes+':'+seconds+'</div></div>';
+		temp = '<div class="black-overlay"></div><div class="coffee-content"><div class="coffee-content__icon"><i class="icon-coffee"></i></div><div class="coffee-content__timer">'+minutes+':'+seconds+'</div></div>';
 		document.body.innerHTML += temp;
 		document.getElementsByClassName('black-overlay')[0].style.display="block";
 		document.getElementsByClassName('coffee-content')[0].style.display="block";
